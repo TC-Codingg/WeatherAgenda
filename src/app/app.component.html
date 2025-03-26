@@ -30,12 +30,25 @@
           <input [(ngModel)]="city" placeholder="Ingrese una ciudad" />
           <button (click)="getWeather()">Obtener Clima</button>
         
-          <div *ngIf="weatherData">
+          <div *ngIf="weatherData" class="centrado">
+          <div class="card">
             <h2>{{ weatherData.name }}</h2>
             <p>Temperatura: {{ weatherData.main.temp }}°C</p>
             <p>Humedad: {{ weatherData.main.humidity }}%</p>
             <p>Condiciones: {{ weatherData.weather[0].description }}</p>
           </div>
+          </div>
+
+          <div *ngFor="let day of forecastData" class="centrado">
+            <div class="card">
+              <p>
+                <strong> {{day.date}} </strong> - 
+                {{ day.temp }} °C - 
+                {{ day.description }}
+              </p>
+            </div>
+            </div>
+
         </div>
 
       </body>

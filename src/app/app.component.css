@@ -1,3 +1,9 @@
 button {
     size: 300px;
 }
+
+.centrado {
+
+    text-align: center;
+    align-items: center;
+}

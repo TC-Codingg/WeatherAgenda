@@ -11,6 +11,7 @@ export class AppComponent {
 
   city: string = 'Buenos Aires';
   weatherData: any;
+  forecastData: any[] = [];
 
   constructor (private weatherService: WeatherService) {}
 
@@ -22,6 +23,16 @@ export class AppComponent {
       },
       (error) => {
         console.error('Error while obtaining weather: ', error);
+      }
+    );
+
+    this.weatherService.getForecast(this.city).subscribe(
+      (data) => {
+        this.forecastData = data;
+        
+      },
+      (error) => {
+        console.error('Error while obtaining weather forecast: ', error)
       }
     );
   }
