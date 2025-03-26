@@ -13,3 +13,7 @@ img {
     max-height: fit-content;
     padding-top: 2px;
 }
+
+.right {
+    padding-left: 723px;
+}

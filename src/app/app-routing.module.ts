@@ -7,7 +7,7 @@ const routes: Routes = [
 
   {path: "Home", component:MainComponent},
   {path: '', redirectTo: 'Home', pathMatch: 'full'},
-  {path: "info", component:InfoComponent},  
+  {path: "info", component: InfoComponent},  
 
   
 
