@@ -59,6 +59,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "proxyConfig": "proxy.conf.json"
             "production": {
               "browserTarget": "WeatherAgenda:build:production"
             },
