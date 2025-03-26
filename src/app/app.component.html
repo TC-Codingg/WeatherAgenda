@@ -27,7 +27,7 @@
         <router-outlet></router-outlet>
         <div>
           <h1>Consulta el Clima</h1>
-          <input [(ngModel)]="city" placeholder="Ingrese ciudad" />
+          <input [(ngModel)]="city" placeholder="Ingrese una ciudad" />
           <button (click)="getWeather()">Obtener Clima</button>
         
           <div *ngIf="weatherData">
