@@ -7,38 +7,4 @@ import { WeatherService } from './services/weather.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'WeatherAgenda';
-
-  city: string = 'Buenos Aires';
-  weatherData: any;
-  forecastData: any[] = [];
-
-  constructor (private weatherService: WeatherService) {}
-
-    ngOnInit(): void {
-      this.getWeather();
-    }
-  
-
-  getWeather() {
-    this.weatherService.getweather(this.city).subscribe(
-      (data) => {
-        this.weatherData = data;
-        console.log(data);
-      },
-      (error) => {
-        console.error('Error while obtaining weather: ', error);
-      }
-    );
-
-    this.weatherService.getForecast(this.city).subscribe(
-      (data) => {
-        this.forecastData = data;
-        
-      },
-      (error) => {
-        console.error('Error while obtaining weather forecast: ', error)
-      }
-    );
-  }
 }

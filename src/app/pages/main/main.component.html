@@ -1,0 +1,27 @@
+<div class="container">
+    <h1 class="text-light">Consulta el Clima</h1>
+    
+    <input class="form-control" [(ngModel)]="city" placeholder="Ingrese una ciudad" />
+    
+    <button class="btn btn-primary w-100 mt-2" (click)="getWeather()">Obtener Clima</button>
+
+    <!-- Clima actual -->
+    <div *ngIf="weatherData" class="mt-3">
+      <div class="card">
+        <h2>{{ weatherData.name }}</h2>
+        <p><strong>Temperatura:</strong> {{ weatherData.main.temp }}°C</p>
+        <p><strong>Humedad:</strong> {{ weatherData.main.humidity }}%</p>
+        <p><strong>Condiciones:</strong> {{ weatherData.weather[0].description }}</p>
+      </div>
+    </div>
+
+    <!-- Pronóstico -->
+    <div *ngFor="let day of forecastData" class="card">
+      <p>
+        <strong>{{ day.date | date: "MM/dd/yyyy" }}</strong> - 
+        {{ day.temp }} °C - 
+        {{ day.description }}
+      </p>
+    </div>
+   
+  </div>

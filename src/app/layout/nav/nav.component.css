@@ -2,3 +2,14 @@ header {
     border: none;
 }
 
+a {
+    color: black;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+img {
+    max-width: 40px;
+    max-height: fit-content;
+    padding-top: 2px;
+}
