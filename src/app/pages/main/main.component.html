@@ -1,7 +1,7 @@
 <div class="container">
     <h1 class="text-dark">Check Weather Now</h1>
     
-    <input class="form-control" [(ngModel)]="city" placeholder="Ingrese una ciudad" />
+    <input class="form-control" [(ngModel)]="city" placeholder="Enter a city" />
     
     <button class="btn btn-primary w-100 mt-2" (click)="getWeather()">Get Forecast</button>
 
@@ -10,8 +10,10 @@
       <div class="card">
         <h2>{{ weatherData.name }}</h2>
         <p><strong>Temperature:</strong> {{ weatherData.main.temp }}°C</p>
-        <p><strong>Humidity:</strong> {{ weatherData.main.humidity }}%</p>
+        <p><strong>Humidity:</strong> {{ weatherData.main.humidity }}% </p>
         <p><strong>Status:</strong> {{ weatherData.weather[0].description }}</p>
+        
+        <p *ngIf="tooCold"> ta friaso  </p>
       </div>
     </div>
 
