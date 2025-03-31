@@ -1,27 +1,109 @@
-# WeatherAgenda
+Weather Agenda Documentation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+Developed by TC
 
-## Development server
+Overview
+Weather Agenda is an Angular application that allows users to check current weather conditions and forecasts for cities around the world. The application provides real-time weather data, including temperature, humidity, and weather status, along with a 5-day forecast and personalized advisories based on current weather conditions.
+Project Structure
+Core Components
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Main Component: The primary interface where users input city names and view weather information.
+Info Component: Provides information about the application's purpose and features.
+Layout Components:
 
-## Code scaffolding
+Nav Component: Navigation bar with links to Home and Info pages.
+Footer Component: Displays developer information and GitHub link.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Services
 
-## Running unit tests
+Weather Service: Handles API communication with OpenWeatherMap to fetch current weather and forecast data.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Features
+Current Weather Display
 
-## Running end-to-end tests
+Shows temperature in Celsius
+Displays humidity percentage
+Shows weather description (e.g., "clear sky", "light rain")
+Shows precipitation amount when available
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Weather Advisories
+The application provides contextual advisories based on current weather conditions:
 
-## Further help
+Temperature advisories (cold, extremely cold, warm, extreme heat)
+Humidity advisories
+Rain advisories (light/moderate rain, heavy rain)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+5-Day Forecast
+
+Displays a 5-day weather forecast
+Each forecast entry includes date, temperature, and weather description
+
+User Interface
+
+Clean, responsive design using Bootstrap
+Gradient background with card-based layout
+Easy-to-use city search with support for keyboard shortcuts (Space and Enter keys)
+
+Technical Implementation
+API Integration
+
+Uses OpenWeatherMap API for weather data
+API key is stored in the weather service
+Supports metric units (Celsius) and English language
+
+Routing
+
+Home route (/Home) displays the main weather component
+Info route (/info) displays information about the application
+Default route redirects to Home
+
+Styling
+
+Uses a combination of Bootstrap and custom CSS
+Implements gradient backgrounds
+Responsive design with mobile support
+
+Data Processing
+
+Transforms raw API data into user-friendly format
+Filters forecast data to show one entry per day (at 12:00)
+Dynamically generates weather advisories based on current conditions
+
+Development Information
+Environment
+
+Built with Angular 16.2.2
+Uses Bootstrap 5.3.2 for styling
+Includes development tools like Karma for testing
+
+Project Setup
+
+Standard Angular CLI project structure
+Includes proxy configuration for API requests
+Contains configuration for VSCode integration
+
+Deployment
+
+Configured for deployment on platforms supporting SPA routing
+Includes _redirects file for Netlify deployment
+Set up with proper production build configuration
+
+Future Enhancements
+Potential areas for improvement:
+
+Add unit switching (Celsius/Fahrenheit)
+Implement location detection
+Add weather maps
+Include more detailed forecast information
+Add historical weather data
+
+Getting Started
+
+Clone the repository
+Run npm install to install dependencies
+Run ng serve to start the development server
+Navigate to http://localhost:4200/
+
+The application will automatically reload if you change any source files.
