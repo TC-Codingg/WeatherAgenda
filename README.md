@@ -1,4 +1,4 @@
-Weather Agenda Documentation
+Weather Agenda
 
 Developed by TC
 
