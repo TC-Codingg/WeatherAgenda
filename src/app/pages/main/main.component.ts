@@ -20,6 +20,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
 })
 export class MainComponent implements OnInit { 
   title = 'WeatherAgenda';
+  
+  // Default city
 
   city: string = 'Buenos Aires';
   weatherData: any;
@@ -27,14 +29,17 @@ export class MainComponent implements OnInit {
   
   
   // Weather advisory
-
+  
+// Temperature conditions
   Hot: any;
   tooHot: any;
   Cold: any;
   tooCold: any;
 
+// Humidity
   Humid: any;
 
+// Precipitation conditions
   Rainy: any;
   tooRainy: any;
   
@@ -45,12 +50,14 @@ export class MainComponent implements OnInit {
     this.getWeather();
   }
   
-  
+  // Method to get weather and forecast data
   getWeather() {
     this.weatherService.getweather(this.city).subscribe(
       (data) => {
         this.weatherData = data;
-         
+        
+        // Conditionals to determine weather advisory 
+
         this.Cold = this.weatherData.main.temp <= 10 && this.weatherData.main.temp > 5;
         this.tooCold = this.weatherData.main.temp <= 5;
         
