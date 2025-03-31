@@ -39,18 +39,22 @@ export class MainComponent implements OnInit {
     this.weatherService.getweather(this.city).subscribe(
       (data) => {
         this.weatherData = data;
+         
+        this.Cold = this.weatherData.main.temp <= 10 && this.weatherData.main.temp > 5;
+        this.tooCold = this.weatherData.main.temp <= 5;
         
-        this.Cold = this.weatherData.main.temp < 10;
-        this.tooCold = this.weatherData.main.temp < 5;
-
-        this.Hot = this.weatherData.main.temp > 20;
-        this.tooHot = this.weatherData.main.temp > 30;
+        this.Hot = this.weatherData.main.temp >= 20 && this.weatherData.main.temp < 35;
+        this.tooHot = this.weatherData.main.temp >= 35;
 
         this.Humid = this.weatherData.main.humidity > 40;
 
+        if (this.weatherData.rain) {
         this.Rainy = this.weatherData.rain['1h'] >= 2 && this.weatherData.rain['1h'] <= 10;
         this.tooRainy = this.weatherData.rain['1h'] > 30;
-
+        } else {
+        this.Rainy = false;
+        this.tooRainy = false;
+        }
         
         console.log(data);
       },
