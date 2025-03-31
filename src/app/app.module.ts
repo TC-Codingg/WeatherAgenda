@@ -8,7 +8,7 @@ import { LayoutModule } from './layout/layout.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { PagesModule } from './pages/pages.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [	
@@ -21,7 +21,8 @@ import { PagesModule } from './pages/pages.module';
     LayoutModule,
     HttpClientModule,
     FormsModule,
-    PagesModule
+    PagesModule,
+    BrowserAnimationsModule
 
   ],
   providers: [],

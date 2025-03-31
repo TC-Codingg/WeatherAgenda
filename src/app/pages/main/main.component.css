@@ -3,3 +3,20 @@
     text-align: center;
     align-items: center;
 }
+
+.advisory-container {
+    max-height: 400px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.alert {
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.alert:hover {
+    transform: translateX(5px);
+}

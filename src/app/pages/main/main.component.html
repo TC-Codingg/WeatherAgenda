@@ -18,14 +18,36 @@
 
         <div class="card bg-light" style="width: 35%">
             <div class="card-body">
-                <h2 class="card-title">Advisories</h2>
-                    <p *ngIf="Cold">It's cold outside. Consider wearing warm clothing.</p>
-                    <p *ngIf="tooCold">Extremely cold temperatures! Stay indoors if possible.</p>
-                    <p *ngIf="Hot">It's warm outside. Stay hydrated and avoid prolonged sun exposure.</p>
-                    <p *ngIf="tooHot">Extreme heat! Avoid outdoor activities and stay cool.</p>
-                    <p *ngIf="Humid">High humidity levels. It might feel hotter than it is.</p>
-                    <p *ngIf="Rainy">Light to moderate rain expected. Carry an umbrella.</p>
-                    <p *ngIf="tooRainy">Heavy rain! Be cautious of potential flooding.</p>
+                <h2 class="card-title text-center mb-3">Weather Advisories</h2>
+                <div class="advisory-container">
+                    <div *ngIf="tooCold" class="alert alert-danger" @fadeInOut>
+                        <strong>Extreme Cold Alert!</strong>
+                        <p class="mb-0">Stay indoors if possible.</p>
+                    </div>
+                    <div *ngIf="Cold" class="alert alert-info" @fadeInOut>
+                        <p class="mb-0">It's cold outside. Consider wearing warm clothing.</p>
+                    </div>
+                    <div *ngIf="tooHot" class="alert alert-danger" @fadeInOut>
+                        <strong>Extreme Heat Alert!</strong>
+                        <p class="mb-0">Avoid outdoor activities and stay cool.</p>
+                    </div>
+                    <div *ngIf="Hot" class="alert alert-warning" @fadeInOut>
+                        <p class="mb-0">It's warm outside. Stay hydrated and avoid prolonged sun exposure.</p>
+                    </div>
+                    <div *ngIf="Humid" class="alert alert-warning" @fadeInOut>
+                        <p class="mb-0">High humidity levels. It might feel hotter than it is.</p>
+                    </div>
+                    <div *ngIf="tooRainy" class="alert alert-danger" @fadeInOut>
+                        <strong>Heavy Rain Alert!</strong>
+                        <p class="mb-0">Be cautious of potential flooding.</p>
+                    </div>
+                    <div *ngIf="Rainy" class="alert alert-info" @fadeInOut>
+                        <p class="mb-0">Light to moderate rain expected. Carry an umbrella.</p>
+                    </div>
+                    <div *ngIf="Rainy && Cold" class="alert alert-info" @fadeInOut>
+                        <p class="mb-0">Not a good idea to go out today.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

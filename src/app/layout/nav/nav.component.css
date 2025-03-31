@@ -3,9 +3,9 @@ header {
 }
 
 a {
-    color: black;
+    color: rgb(205, 201, 201);
     font-size: 20px;
-    text-decoration: underline;
+
 }
 
 img {
