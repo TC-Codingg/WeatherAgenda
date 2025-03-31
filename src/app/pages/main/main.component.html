@@ -1,29 +1,40 @@
-<div class="container">
+<div class="container" (keydown.space)="getWeather()" (keydown.enter)="getWeather()">
     <h1 class="text-dark">Check Weather Now</h1>
     
     <input class="form-control" [(ngModel)]="city" placeholder="Enter a city" />
     
     <button class="btn btn-primary w-100 mt-2" (click)="getWeather()">Get Forecast</button>
 
-    <!-- Clima actual -->
-    <div *ngIf="weatherData" class="mt-3">
-      <div class="card">
-        <h2>{{ weatherData.name }}</h2>
-        <p><strong>Temperature:</strong> {{ weatherData.main.temp }}°C</p>
-        <p><strong>Humidity:</strong> {{ weatherData.main.humidity }}% </p>
-        <p><strong>Status:</strong> {{ weatherData.weather[0].description }}</p>
-        
-        <p *ngIf="tooCold"> ta friaso  </p>
-      </div>
+    <div *ngIf="weatherData" class="mt-3 d-flex gap-3">
+        <div class="card" style="width: 65%">
+            <div class="card-body">
+                <h2>{{ weatherData.name }}</h2>
+                <p><strong>Temperature:</strong> {{ weatherData.main.temp }}°C</p>
+                <p><strong>Humidity:</strong> {{ weatherData.main.humidity }}% </p>
+                <p><strong>Status:</strong> {{ weatherData.weather[0].description }}</p>
+                <p *ngIf="weatherData.rain"><strong>Precipitation:</strong> {{ weatherData.rain['1h'] }}</p>
+            </div>
+        </div>
+
+        <div class="card bg-light" style="width: 35%">
+            <div class="card-body">
+                <h2 class="card-title">Advisories</h2>
+                    <p *ngIf="Cold">It's cold outside. Consider wearing warm clothing.</p>
+                    <p *ngIf="tooCold">Extremely cold temperatures! Stay indoors if possible.</p>
+                    <p *ngIf="Hot">It's warm outside. Stay hydrated and avoid prolonged sun exposure.</p>
+                    <p *ngIf="tooHot">Extreme heat! Avoid outdoor activities and stay cool.</p>
+                    <p *ngIf="Humid">High humidity levels. It might feel hotter than it is.</p>
+                    <p *ngIf="Rainy">Light to moderate rain expected. Carry an umbrella.</p>
+                    <p *ngIf="tooRainy">Heavy rain! Be cautious of potential flooding.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- Pronóstico -->
-    <div *ngFor="let day of forecastData" class="card">
-      <p>
-        <strong>{{ day.date | date: "MM/dd/yyyy" }}</strong> - 
-        {{ day.temp }} °C - 
-        {{ day.description }}
-      </p>
+    <div *ngFor="let day of forecastData" class="card mt-3">
+        <p>
+            <strong>{{ day.date | date: "MM/dd/yyyy" }}</strong> - 
+            {{ day.temp }} °C - 
+            {{ day.description }}
+        </p>
     </div>
-   
-  </div>
+</div>

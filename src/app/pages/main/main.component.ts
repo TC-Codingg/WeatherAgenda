@@ -15,8 +15,17 @@ export class MainComponent implements OnInit {
   forecastData: any[] = [];
   
   
-  // Advices
+  // Weather advisory
+
+  Hot: any;
+  tooHot: any;
+  Cold: any;
   tooCold: any;
+
+  Humid: any;
+
+  Rainy: any;
+  tooRainy: any;
   
   
   constructor (private weatherService: WeatherService) {}
@@ -31,6 +40,17 @@ export class MainComponent implements OnInit {
       (data) => {
         this.weatherData = data;
         
+        this.Cold = this.weatherData.main.temp < 10;
+        this.tooCold = this.weatherData.main.temp < 5;
+
+        this.Hot = this.weatherData.main.temp > 20;
+        this.tooHot = this.weatherData.main.temp > 30;
+
+        this.Humid = this.weatherData.main.humidity > 40;
+
+        this.Rainy = this.weatherData.rain['1h'] >= 2 && this.weatherData.rain['1h'] <= 10;
+        this.tooRainy = this.weatherData.rain['1h'] > 30;
+
         
         console.log(data);
       },
@@ -50,7 +70,6 @@ export class MainComponent implements OnInit {
     );
     
     
-    this.tooCold = this.weatherData.main.temp < 10;
     
   }
   
